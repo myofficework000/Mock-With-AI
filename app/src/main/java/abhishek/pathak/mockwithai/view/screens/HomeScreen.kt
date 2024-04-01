@@ -1,5 +1,6 @@
 package abhishek.pathak.mockwithai.view.screens
 
+import abhishek.pathak.mockwithai.R
 import abhishek.pathak.mockwithai.ui.theme.Green40
 import abhishek.pathak.mockwithai.ui.theme.Green60
 import abhishek.pathak.mockwithai.ui.theme.Green80
@@ -36,6 +37,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -54,7 +56,7 @@ fun HomeScreen() {
         val (box1, box2, box3, box4) = createRefs()
         val (interviewBox1, interviewBox2) = createRefs()
 
-        Text(text = "Your Interviews",
+        Text(text = stringResource(id = R.string.your_interviews),
             fontSize = sp_24,
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier.constrainAs(title1){
@@ -131,7 +133,7 @@ fun HomeScreen() {
         }
 
 
-        Text(text = "Interview Schedule",
+        Text(text = stringResource(id = R.string.interview_schedule),
             fontSize = sp_24,
             fontWeight = FontWeight.SemiBold,
             modifier = Modifier
@@ -148,7 +150,7 @@ fun HomeScreen() {
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
                 }
-                .padding(dp_0, dp_18)
+                .padding(dp_8, dp_18)
                 .clickable { }
         ) {
             LargeBoxUIContent(
@@ -167,7 +169,7 @@ fun HomeScreen() {
                     start.linkTo(parent.start)
                     end.linkTo(parent.end)
                 }
-                .padding(dp_0, dp_18)
+                .padding(dp_8, dp_0)
                 .clickable { }
         ) {
             LargeBoxUIContent(
@@ -186,7 +188,8 @@ fun SmallBoxUIContent(title: String, count: String, unit: String, backgroundColo
     Column(
         Modifier
             .background(backgroundColor)
-            .padding(dp_10, dp_16)) {
+            .padding(dp_10, dp_16)
+            .clickable {  }) {
         Text(text = title,
             fontSize = sp_14,
             color= textColor,
@@ -248,7 +251,7 @@ fun LargeBoxUIContent(title: String, task: String, unit: String, isOnline: Boole
                 }
                 .padding(dp_28, dp_18)
                 .background(Green80) ) {
-                Text(text = "Online",
+                Text(text = stringResource(id = R.string.online),
                     color = Color.White,
                     fontSize = sp_14,
                     modifier = Modifier.padding(dp_30, dp_2)

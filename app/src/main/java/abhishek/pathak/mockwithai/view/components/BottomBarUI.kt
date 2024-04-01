@@ -1,5 +1,6 @@
 package abhishek.pathak.mockwithai.view.components
 
+import abhishek.pathak.mockwithai.R
 import abhishek.pathak.mockwithai.navigation.BottomNaviItems
 import abhishek.pathak.mockwithai.navigation.NavigationItem
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -15,6 +16,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
@@ -31,26 +33,26 @@ fun BottomBarUI(navController: NavController) {
             onClick = { navController.navigate(BottomNaviItems.HOME.route) },
             icon = { Icon(imageVector = Icons.Default.Home
                 , contentDescription = null) },
-            label = { Text(text = "Home") })
+            label = { Text(text = stringResource(id = R.string.home)) })
 
         NavigationBarItem(
             selected = false,
             onClick = { navController.navigate(BottomNaviItems.SEARCH.route) },
             icon = { Icon(imageVector = Icons.Default.Search, contentDescription = null)},
-            label = { Text(text = "Search")})
+            label = { Text(text = stringResource(id = R.string.search))})
 
         NavigationBarItem(
             selected = false,
             onClick = { navController.navigate((BottomNaviItems.BOOKMARK.route)) },
             icon = {Icon(imageVector = Icons.Default.BookmarkBorder, contentDescription = null)},
-            label = { Text(text = "Bookmark")}
+            label = { Text(text = stringResource(id = R.string.bookmark))}
             )
 
         NavigationBarItem(
             selected = false,
             onClick = { navController.navigate(BottomNaviItems.ACCOUNT.route) },
             icon = { Icon(imageVector = Icons.Default.Person, contentDescription = null) },
-            label = { Text(text = "Account")})
+            label = { Text(text = stringResource(id = R.string.account))})
     }
 }
 
