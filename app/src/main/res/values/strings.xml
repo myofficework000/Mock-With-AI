@@ -1,12 +1,15 @@
 <resources>
     <string name="app_name">MockWithAI</string>
-
+    <string name="Login">Login</string>
+    <string name="HidePassword">Hide Password</string>
+    <string name="ShowPasword">Show Password\n</string>
+    <string name="Email">Email\n</string>
+    <string name="Password">Password\n</string>
+    <string name="EnterYourPassword">Enter Your Password\n</string>
+    <string name="ForgotPassword">Forgot Password?\n</string>
     <string name="app_header">Tech Interview Pro</string>
-
-
     <string name="your_interviews">Your Interviews</string>
     <string name="interview_schedule">Interview Schedule</string>
-
 
     //Bottom Nav
     <string name="home">Home</string>
