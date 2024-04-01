@@ -1,5 +1,6 @@
 package abhishek.pathak.mockwithai.view.screens
 
+import abhishek.pathak.mockwithai.R
 import abhishek.pathak.mockwithai.navigation.BottomNaviItems
 import abhishek.pathak.mockwithai.ui.theme.White
 import abhishek.pathak.mockwithai.ui.theme.dp_0
@@ -23,6 +24,7 @@ import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -38,7 +40,9 @@ fun ScaffoldUI() {
     val navController = rememberNavController()
 
     val coroutineScope = rememberCoroutineScope()
-    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+
+    val drawerState = rememberDrawerState(
+        initialValue = DrawerValue.Closed)
 
         ModalNavigationDrawer(
 
@@ -49,7 +53,7 @@ fun ScaffoldUI() {
             Scaffold(
                 topBar = {
                     TopAppBar(
-                        title = { Text(text = "Tech Interview Pro",
+                        title = { Text(text = stringResource(id = R.string.app_header),
                             textAlign = TextAlign.Center,
                             fontWeight = FontWeight.Medium,
                             modifier = Modifier.padding(dp_20, dp_0))
