@@ -61,5 +61,6 @@ val sp_26 = 26.sp
 val sp_30 = 30.sp
 val sp_32 = 32.sp
 val sp_34 = 34.sp
+val sp_36 = 36.sp
 val sp_40 = 40.sp
 val sp_60 = 60.sp
