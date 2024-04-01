@@ -1,5 +1,6 @@
 package abhishek.pathak.mockwithai.view
 
+import abhishek.pathak.mockwithai.navigation.AppNavHost
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -12,6 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import abhishek.pathak.mockwithai.ui.theme.MockWithAITheme
 import abhishek.pathak.mockwithai.view.screens.ScaffoldUI
+import abhishek.pathak.mockwithai.view.screens.WelcomeScreen
+import androidx.navigation.compose.rememberNavController
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +26,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    ScaffoldUI()
+                    AppNavHost(navHostController = rememberNavController())
                 }
             }
         }

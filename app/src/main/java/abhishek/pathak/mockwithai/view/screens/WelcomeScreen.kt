@@ -1,6 +1,7 @@
 package abhishek.pathak.mockwithai.view.screens
 
 import abhishek.pathak.mockwithai.R
+import abhishek.pathak.mockwithai.navigation.NavigationItem
 import abhishek.pathak.mockwithai.ui.theme.Green80
 import abhishek.pathak.mockwithai.ui.theme.dp_10
 import abhishek.pathak.mockwithai.ui.theme.dp_100
@@ -36,10 +37,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 
 @Composable
-fun WelcomeScreen(){
+fun WelcomeScreen(navController: NavController){
 Card(
     modifier = Modifier
         .padding(dp_10)
@@ -77,7 +80,7 @@ Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(dp_10))
-    Button(onClick = { }, modifier = Modifier
+    Button(onClick = {navController.navigate(NavigationItem.LOGIN_SCREEN.route) }, modifier = Modifier
         .align(Alignment.CenterHorizontally)
         .padding(top = dp_100, start = dp_10, end = dp_10)
         .fillMaxWidth(),
@@ -96,12 +99,12 @@ Card(
     ) {
         Text(text = stringResource(id = R.string.already_member),
             color = Color.Black)
+        }
     }
-}
 }
 
 @Preview
 @Composable
 fun WelcomeScreenPrev(){
-    WelcomeScreen()
+    WelcomeScreen(rememberNavController())
 }

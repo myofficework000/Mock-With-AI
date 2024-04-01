@@ -1,12 +1,16 @@
-package abhishek.pathak.mockwithai
+package abhishek.pathak.mockwithai.view.screens
 
+import abhishek.pathak.mockwithai.R
+import abhishek.pathak.mockwithai.navigation.NavigationItem
 import abhishek.pathak.mockwithai.ui.theme.Black
 import abhishek.pathak.mockwithai.ui.theme.Green
 import abhishek.pathak.mockwithai.ui.theme.White
+import abhishek.pathak.mockwithai.ui.theme.dp_10
 import abhishek.pathak.mockwithai.ui.theme.dp_16
 import abhishek.pathak.mockwithai.ui.theme.dp_180
 import abhishek.pathak.mockwithai.ui.theme.dp_20
 import abhishek.pathak.mockwithai.ui.theme.dp_24
+import abhishek.pathak.mockwithai.ui.theme.dp_30
 import abhishek.pathak.mockwithai.ui.theme.dp_40
 import abhishek.pathak.mockwithai.ui.theme.dp_50
 import abhishek.pathak.mockwithai.ui.theme.dp_8
@@ -36,6 +40,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 @Composable
 fun PasswordTextField(
@@ -52,7 +58,7 @@ fun PasswordTextField(
         value = value,
         onValueChange = onValueChange,
         shape = RoundedCornerShape(dp_24),
-        label = { Text(text = label, color = Black) },
+        label = { Text(text = label, color = Black,textAlign = TextAlign.Center,modifier=Modifier.padding(start= dp_30)) },
         placeholder = { Text(text = placeholder, color = Color.Gray) },
         trailingIcon = {
             IconButton(onClick = { onTogglePasswordVisibility() }) {
@@ -68,7 +74,7 @@ fun PasswordTextField(
 }
 
 @Composable
-fun LoginScreenUI() {
+fun LoginScreenUI(navController: NavController) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var showPassword by remember { mutableStateOf(false) }
@@ -105,12 +111,14 @@ fun LoginScreenUI() {
                 TextField(
                     value = email,
                     onValueChange = { email = it },
-                    label = { Text(text =  stringResource(id = R.string.Email), color = Black) },
-                    modifier = Modifier.fillMaxWidth(),
+                    label = { Text(text =  stringResource(id = R.string.Email),
+                        color = Black, textAlign = TextAlign.Center) },
+                    modifier = Modifier.fillMaxWidth().padding(dp_10),
                     shape = RoundedCornerShape(dp_24)
                 )
                 Spacer(modifier = Modifier.height(dp_16))
                 PasswordTextField(
+                    modifier = Modifier.padding(dp_10),
                     value = password,
                     onValueChange = { password = it },
                     label =  stringResource(id = R.string.Password),
@@ -127,7 +135,7 @@ fun LoginScreenUI() {
                 )
                 Spacer(modifier = Modifier.height(dp_20))
                 Button(
-                    onClick={},
+                    onClick={navController.navigate(NavigationItem.SCAFFOLDUI.route)},
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally),
                     colors = ButtonDefaults.buttonColors(White)
@@ -142,5 +150,5 @@ fun LoginScreenUI() {
 @Preview(showBackground = true)
 @Composable
 fun LoginScreenPreview() {
-    LoginScreenUI()
+    LoginScreenUI(rememberNavController())
 }

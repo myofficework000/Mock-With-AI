@@ -1,6 +1,12 @@
 package abhishek.pathak.mockwithai.navigation
 
 sealed class NavigationItem(val route: String) {
+    data object WELCOME_SCREEN: NavigationItem(Screen.WELCOME_SCREEN.name)
+
+    data object LOGIN_SCREEN: NavigationItem(Screen.LOGIN_SCREEN.name)
+
+    data object INTERVIEW_SCHEDULE: NavigationItem(Screen.INTERVIEW_SCHEDULE.name)
+    data object SCAFFOLDUI: NavigationItem(Screen.SCAFFOLDUI.name)
 
     data object HOME_SCREEN: NavigationItem(Screen.HOME_SCREEN.name)
 
