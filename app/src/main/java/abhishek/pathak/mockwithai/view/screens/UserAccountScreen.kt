@@ -1,16 +1,29 @@
 package abhishek.pathak.mockwithai.view.screens
 
-import abhishek.pathak.mockwithai.ui.theme.*
+import abhishek.pathak.mockwithai.R
+import abhishek.pathak.mockwithai.ui.theme.dp_16
+import abhishek.pathak.mockwithai.ui.theme.dp_2
+import abhishek.pathak.mockwithai.ui.theme.dp_4
+import abhishek.pathak.mockwithai.ui.theme.dp_8
+import abhishek.pathak.mockwithai.ui.theme.sp_14
+import abhishek.pathak.mockwithai.ui.theme.sp_18
+import abhishek.pathak.mockwithai.ui.theme.sp_24
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountBox
-import androidx.compose.material3.*
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,11 +35,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.constraintlayout.compose.ConstraintLayout
 
 @Composable
 fun UserAccountScreen() {
-    ScaffoldUI { paddingValues ->
+    Scaffold { paddingValues ->
         Box(modifier = Modifier.padding(paddingValues)) {
             Column(modifier = Modifier.fillMaxSize()) {
                 ProfileHeader()
@@ -46,7 +58,7 @@ fun ProfileHeader() {
             .padding(dp_16)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.profile_picture),
+            painter = painterResource(id = R.drawable._024px_man_working_at_his_desk_cartoon_vector_svg),
             contentDescription = "Profile Picture",
             modifier = Modifier
                 .size(90.dp)
@@ -97,13 +109,15 @@ fun ImageGallery() {
         painterResource(R.drawable.image3)
     )
 
+
     LazyVerticalGrid(
-        cells = GridCells.Fixed(3),
+        columns = GridCells.Fixed(3),
         contentPadding = PaddingValues(dp_8)
     ) {
-        items(imageList) { painter ->
-            ImageItem(painter)
-        }
+       items(imageList){painter->
+           ImageItem(painter = painter)
+           
+       }
     }
 }
 

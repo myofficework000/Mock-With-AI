@@ -44,7 +44,7 @@ fun ScaffoldUI() {
     val drawerState = rememberDrawerState(
         initialValue = DrawerValue.Closed)
 
-        ModalNavigationDrawer(
+    ModalNavigationDrawer(
 
         drawerState = drawerState,
         drawerContent = {
