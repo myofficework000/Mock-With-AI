@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AuthenticationViewModel @Inject constructor(
-    private val firebaseAuth: FirebaseAuth // Correct use of injected FirebaseAuth
+    private val firebaseAuth: FirebaseAuth
 ) : ViewModel() {
 
     var email = mutableStateOf("")
@@ -28,7 +28,7 @@ class AuthenticationViewModel @Inject constructor(
 
     fun login(email: String, password: String) {
         if (email.isEmpty() || password.isEmpty()) {
-            _loginStatus.postValue("Email or password cannot be empty") // Using postValue for thread-safety
+            _loginStatus.postValue("Email or password cannot be empty")
             return
         }
 
