@@ -15,7 +15,14 @@ import abhishek.pathak.mockwithai.ui.theme.MockWithAITheme
 import abhishek.pathak.mockwithai.view.screens.ScaffoldUI
 import abhishek.pathak.mockwithai.view.screens.WelcomeScreen
 import androidx.navigation.compose.rememberNavController
+import androidx.activity.compose.setContent
+import dagger.hilt.android.AndroidEntryPoint
+import androidx.activity.compose.setContent
+import abhishek.pathak.mockwithai.ui.theme.MockWithAITheme
+import abhishek.pathak.mockwithai.navigation.AppNavHost
+import androidx.navigation.compose.rememberNavController
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
