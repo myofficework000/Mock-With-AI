@@ -53,8 +53,6 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     AppNavHost(navHostController = rememberNavController())
-                    ThemeScreen()
-
                 }
             }
         }

@@ -16,6 +16,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -53,19 +54,19 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 
 
 @Composable
 fun LoginScreenUI(navController: NavController) {
-    val authenticationViewModel: AuthenticationViewModel = viewModel()
+    val authenticationViewModel: AuthenticationViewModel = hiltViewModel()
     val context = LocalContext.current
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var showPassword: Boolean by remember { mutableStateOf(false) }
-    var isLoginScreen: Boolean by remember { mutableStateOf(false)}
+    var isLoginScreen: Boolean by remember { mutableStateOf(false) }
     val loginStatus by authenticationViewModel.loginStatus.observeAsState()
     val registerStatus by authenticationViewModel.registerStatus.observeAsState()
     val verifyEmailStatus by authenticationViewModel.verifyEmailStatus.observeAsState()
@@ -82,15 +83,15 @@ fun LoginScreenUI(navController: NavController) {
             //navController.navigate(NavigationItem.SCAFFOLDUI.route)
         } else {
             showToast(context, status)
-            Log.i("error","error")
+            Log.i("error", "error")
         }
     }
 
     registerStatus?.let { status ->
         if (status == "Success") {
             showToast(context, status)
-            // Navigate to ScaffoldUI upon successful registration
-            //navController.navigate(NavigationItem.SCAFFOLDUI.route)
+            //Navigate to ScaffoldUI upon successful registration
+            navController.navigate(NavigationItem.SCAFFOLDUI.route)
         } else {
             showToast(context, status)
         }
@@ -191,6 +192,10 @@ fun LoginScreenUI(navController: NavController) {
                     onCheckedChange = { isLoginScreen = it },
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
+
+                Text(text = "Skip login", modifier = Modifier.clickable {
+                    navController.navigate(NavigationItem.SCAFFOLDUI.route)
+                })
             }
         }
     }

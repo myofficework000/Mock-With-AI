@@ -9,6 +9,7 @@ import androidx.compose.material.icons.filled.BookmarkBorder
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -31,28 +32,36 @@ fun BottomBarUI(navController: NavController) {
         NavigationBarItem(
             selected = false,
             onClick = { navController.navigate(BottomNaviItems.HOME.route) },
-            icon = { Icon(imageVector = Icons.Default.Home
-                , contentDescription = null) },
+            icon = {
+                Icon(
+                    imageVector = Icons.Default.Home, contentDescription = null
+                )
+            },
             label = { Text(text = stringResource(id = R.string.home)) })
 
         NavigationBarItem(
             selected = false,
             onClick = { navController.navigate(BottomNaviItems.SEARCH.route) },
-            icon = { Icon(imageVector = Icons.Default.Search, contentDescription = null)},
-            label = { Text(text = stringResource(id = R.string.search))})
+            icon = { Icon(imageVector = Icons.Default.Search, contentDescription = null) },
+            label = { Text(text = stringResource(id = R.string.search)) })
 
         NavigationBarItem(
             selected = false,
             onClick = { navController.navigate((BottomNaviItems.BOOKMARK.route)) },
-            icon = {Icon(imageVector = Icons.Default.BookmarkBorder, contentDescription = null)},
-            label = { Text(text = stringResource(id = R.string.bookmark))}
-            )
+            icon = { Icon(imageVector = Icons.Default.BookmarkBorder, contentDescription = null) },
+            label = { Text(text = stringResource(id = R.string.bookmark)) }
+        )
 
         NavigationBarItem(
             selected = false,
             onClick = { navController.navigate(BottomNaviItems.ACCOUNT.route) },
             icon = { Icon(imageVector = Icons.Default.Person, contentDescription = null) },
-            label = { Text(text = stringResource(id = R.string.account))})
+            label = { Text(text = stringResource(id = R.string.account)) })
+        NavigationBarItem(
+            selected = false,
+            onClick = { navController.navigate(BottomNaviItems.SETTINGS.route) },
+            icon = { Icon(imageVector = Icons.Default.Settings, contentDescription = null) },
+            label = { Text(text = stringResource(id = R.string.settings)) })
     }
 }
 

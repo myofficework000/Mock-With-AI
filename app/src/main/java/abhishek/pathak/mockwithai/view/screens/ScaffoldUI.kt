@@ -42,7 +42,8 @@ fun ScaffoldUI() {
     val coroutineScope = rememberCoroutineScope()
 
     val drawerState = rememberDrawerState(
-        initialValue = DrawerValue.Closed)
+        initialValue = DrawerValue.Closed
+    )
 
     ModalNavigationDrawer(
 
@@ -50,48 +51,52 @@ fun ScaffoldUI() {
         drawerContent = {
             NavigationDrawerUI()
         }) {
-            Scaffold(
-                topBar = {
-                    TopAppBar(
-                        title = { Text(text = stringResource(id = R.string.app_header),
+        Scaffold(
+            topBar = {
+                TopAppBar(
+                    title = {
+                        Text(
+                            text = stringResource(id = R.string.app_header),
                             textAlign = TextAlign.Center,
                             fontWeight = FontWeight.Medium,
-                            modifier = Modifier.padding(dp_20, dp_0))
-                        },
-
-                        navigationIcon = {
-                            IconButton(onClick ={coroutineScope.launch { drawerState.open() }}) {
-                                Icon(imageVector = Icons.Default.Menu, contentDescription = null)
-                            }
-                        },
-
-                        actions = {
-                            IconButton(onClick ={navController.navigate(BottomNaviItems.ACCOUNT.route)}) {
-                                Icon(imageVector = Icons.Default.ThumbUpAlt, contentDescription = null)
-                            }
-                        },
-
-                        colors = TopAppBarDefaults.topAppBarColors(
-                            containerColor = White
+                            modifier = Modifier.padding(dp_20, dp_0)
                         )
-                    ) },
+                    },
 
-                bottomBar = { BottomBarUI(navController = navController) }
+                    navigationIcon = {
+                        IconButton(onClick = { coroutineScope.launch { drawerState.open() } }) {
+                            Icon(imageVector = Icons.Default.Menu, contentDescription = null)
+                        }
+                    },
+
+                    actions = {
+                        IconButton(onClick = { navController.navigate(BottomNaviItems.ACCOUNT.route) }) {
+                            Icon(imageVector = Icons.Default.ThumbUpAlt, contentDescription = null)
+                        }
+                    },
+
+                    colors = TopAppBarDefaults.topAppBarColors(
+                        containerColor = White
+                    )
+                )
+            },
+
+            bottomBar = { BottomBarUI(navController = navController) }
+        ) {
+
+            NavHost(
+                navController = navController,
+                startDestination = BottomNaviItems.HOME.route,
+                modifier = Modifier.padding(it)
             ) {
-
-                NavHost(
-                    navController = navController,
-                    startDestination = BottomNaviItems.HOME.route,
-                    modifier = Modifier.padding(it)
-                ) {
-
-                    composable(BottomNaviItems.HOME.route) { HomeScreen() }
-                    composable(BottomNaviItems.SEARCH.route) { SearchScreen() }
-                    composable(BottomNaviItems.BOOKMARK.route) { BookMarkScreen() }
-                    composable(BottomNaviItems.ACCOUNT.route) { UserAccountScreen() }
-                }
+                composable(BottomNaviItems.HOME.route) { HomeScreen() }
+                composable(BottomNaviItems.SEARCH.route) { SearchScreen() }
+                composable(BottomNaviItems.BOOKMARK.route) { BookMarkScreen() }
+                composable(BottomNaviItems.ACCOUNT.route) { UserAccountScreen(navController) }
+                composable(BottomNaviItems.SETTINGS.route) { SettingsScreen() }
             }
         }
+    }
 }
 
 @Preview

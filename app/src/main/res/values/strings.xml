@@ -29,6 +29,7 @@
     <string name="search">Search</string>
     <string name="bookmark">Bookmark</string>
     <string name="account">Account</string>
+    <string name="settings">Settings</string>
 
     //Box vontent
     <string name="online">Online</string>
