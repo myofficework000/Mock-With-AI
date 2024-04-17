@@ -82,7 +82,7 @@ Card(
             .padding(dp_10))
     Button(onClick = {navController.navigate(NavigationItem.LOGIN_SCREEN.route) }, modifier = Modifier
         .align(Alignment.CenterHorizontally)
-        .padding(top = dp_100, start = dp_10, end = dp_10)
+        .padding(top = dp_10, start = dp_10, end = dp_10)
         .fillMaxWidth(),
         colors = ButtonDefaults.buttonColors(Green80),
         shape = RectangleShape
