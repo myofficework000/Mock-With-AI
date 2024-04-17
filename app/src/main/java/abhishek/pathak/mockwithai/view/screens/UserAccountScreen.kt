@@ -45,6 +45,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.google.firebase.auth.FirebaseAuth
 
 @Composable
 fun UserAccountScreen(navController: NavController) {
@@ -54,7 +55,8 @@ fun UserAccountScreen(navController: NavController) {
                 ProfileHeader()
                 MenuBar()
                 ImageGallery()
-                Button(onClick = {navController.navigate(NavigationItem.LOGIN_SCREEN.route) }, modifier = Modifier
+                Button(onClick = {   FirebaseAuth.getInstance().signOut()
+                    navController.navigate(NavigationItem.LOGIN_SCREEN.route) }, modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .padding(top = dp_100, start = dp_10, end = dp_10)
                     .fillMaxWidth(),
