@@ -8,5 +8,6 @@ enum class Screen {
     WELCOME_SCREEN,
     LOGIN_SCREEN,
     INTERVIEW_SCHEDULE,
-    SCAFFOLDUI
+    SCAFFOLDUI,
+    AI_SCREEN
 }

@@ -17,12 +17,14 @@ import androidx.navigation.compose.rememberNavController
 @Composable
 fun AppNavHost(
     navHostController: NavHostController,
-    startDestination: String = NavigationItem.WELCOME_SCREEN.route
+    startDestination: String = NavigationItem.AI_SCREEN.route
 ) {
     NavHost(
         navController = navHostController,
         startDestination = startDestination)
     {
+
+        composable(NavigationItem.AI_SCREEN.route){ WelcomeScreen(navHostController) }
 
         composable(NavigationItem.WELCOME_SCREEN.route){ WelcomeScreen(navHostController) }
 

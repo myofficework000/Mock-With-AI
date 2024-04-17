@@ -76,10 +76,10 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
-    implementation("androidx.compose.runtime:runtime-livedata:1.6.4")
-    implementation( "androidx.compose.material:material-icons-extended:1.6.4")
+    implementation("androidx.compose.runtime:runtime-livedata:1.6.5")
+    implementation( "androidx.compose.material:material-icons-extended:1.6.5")
 
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.17.0")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.32.0")
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
@@ -95,7 +95,6 @@ dependencies {
 
     //compose constrainlayout
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
-
 
     //Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
@@ -114,11 +113,8 @@ dependencies {
     ksp("com.google.dagger:hilt-android-compiler:2.48.1")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
-    implementation("io.reactivex.rxjava2:rxjava:2.2.7")
+    implementation("io.reactivex.rxjava2:rxjava:2.2.9")
     implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
     implementation("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
     implementation("com.squareup.picasso:picasso:2.71828")
-    implementation("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
-    implementation("io.reactivex.rxjava2:rxjava:2.2.7")
-    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
 }

@@ -15,4 +15,6 @@ sealed class NavigationItem(val route: String) {
     data object BOOK_MARK_SCREEN: NavigationItem(Screen.BOOK_MARK_SCREEN.name)
 
     data object USER_ACCOUNT_SCREEN: NavigationItem(Screen.USER_ACCOUNT_SCREEN.name)
+    data object AI_SCREEN: NavigationItem(Screen.AI_SCREEN.name)
+
 }
