@@ -7,6 +7,7 @@ import abhishek.pathak.mockwithai.ui.theme.dp_10
 import abhishek.pathak.mockwithai.ui.theme.dp_100
 import abhishek.pathak.mockwithai.ui.theme.dp_130
 import abhishek.pathak.mockwithai.ui.theme.dp_20
+import abhishek.pathak.mockwithai.ui.theme.dp_300
 import abhishek.pathak.mockwithai.ui.theme.dp_350
 import abhishek.pathak.mockwithai.ui.theme.dp_40
 import abhishek.pathak.mockwithai.ui.theme.sp_20
@@ -54,11 +55,11 @@ Card(
     Box(modifier = Modifier
         .padding(dp_20)
         .background(Color.LightGray)
-        .height(dp_350)
+        .height(dp_300)
         .fillMaxWidth()) {
         Text(text = stringResource(id = R.string.efficient_approach),
             color = Color.Black,
-            fontSize = sp_25,
+            fontSize = sp_20,
             fontWeight = FontWeight.Bold,
             modifier = Modifier
                 .width(dp_130)
@@ -90,7 +91,7 @@ Card(
         Text(text = stringResource(id = R.string.start_now),
             color= Color.Black)
     }
-    OutlinedButton(onClick = { }, modifier = Modifier
+    OutlinedButton(onClick = {navController.navigate(NavigationItem.LOGIN_SCREEN.route) }, modifier = Modifier
         .align(Alignment.CenterHorizontally)
         .padding(dp_10)
         .fillMaxWidth(),
