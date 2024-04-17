@@ -13,7 +13,6 @@
     <string name="min_60">60 min</string>
 
     <string name="Login">Login</string>
-    <string name="Logout">Logout</string>
     <string name="HidePassword">Hide Password</string>
     <string name="ShowPasword">Show Password\n</string>
     <string name="Email">Email\n</string>
